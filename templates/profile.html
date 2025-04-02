@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Translation and Audio Playback</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Real-Time Speech Recognition and Translation</h1>
+
+        <div class="intro">
+            <p>Click the "Start Recording" button below and speak in English. The system will recognize your speech, translate it into your chosen language, and display it on the screen.</p>
+            <p>You can then click the "Speak Translation" button to hear the translated text.</p>
+        </div>
+
+        <div class="button-container">
+            <button id="startButton">Start Recording</button>
+            <button id="speakButton">Speak Translation</button>
+        </div>
+    <div>
+            <label for="languageSelect">Select Language for Translation:</label>
+            <select id="languageSelect">
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="it">Italian</option>
+                <option value="pt">Portuguese</option>
+                <option value="zh">Chinese</option>
+            </select>
+    </div>
+        <div class="text-container">
+            <div class="text-box">
+                <p>Recognized Text:</p>
+                <span id="recognizedText"></span>
+            </div>
+       
+            <div class="text-box">
+                <p>Translated Text:</p>
+                <span id="translatedText"></span>
+            </div>
+        </div>
+        
+
+        <div class="note">
+            <p><strong>Note:</strong> The system uses Azure's Cognitive Services for translation, so make sure you're connected to the internet.</p>
+        </div>
+    </div>
+
+    <script src="{% static 'app.js' %}"></script> <!-- Linking the JavaScript file -->
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register as Patient</title>
+    <link rel="stylesheet" href="{% static 'doctor.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Register as Patient</h2>
+        <form method="POST">
+            {% csrf_token %}
+            
+            <!-- User Registration Fields -->
+            <div class="form-group">
+                <label for="username">Username:</label>
+                {{ user_form.username }}
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                {{ user_form.email }}
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                {{ user_form.password }}
+            </div>
+
+            <!-- Patient-Specific Fields -->
+            <div class="form-group">
+                <label for="date_of_birth">Date of Birth:</label>
+                {{ patient_form.date_of_birth }}
+            </div>
+
+            <button type="submit">Register as Patient</button>
+        </form>
+
+        {% if messages %}
+            <div class="mt-3">
+                <ul class="list-group">
+                    {% for message in messages %}
+                        <li class="list-group-item list-group-item-warning">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
